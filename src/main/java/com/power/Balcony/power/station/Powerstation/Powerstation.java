@@ -10,6 +10,8 @@ import java.time.temporal.ChronoUnit;
 @Table
 public class Powerstation {
 
+    private static final Integer WARRANTYPERIODINYEARS = 15;
+
     @Id
     @SequenceGenerator(
             name = "powerstation_sequence",
@@ -60,7 +62,7 @@ public class Powerstation {
     }
 
     public Boolean getUnderWarranty() {
-        return this.dayOfRegistration != null && Period.between(this.dayOfRegistration, LocalDate.now()).getYears() < 15;
+        return this.dayOfRegistration != null && Period.between(this.dayOfRegistration, LocalDate.now()).getYears() < WARRANTYPERIODINYEARS;
     }
 
     public void setUnderWarranty(Boolean underWarranty) {

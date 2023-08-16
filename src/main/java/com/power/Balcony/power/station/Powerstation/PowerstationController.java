@@ -17,7 +17,6 @@ public class PowerstationController {
         this.powerstationService = powerstationService;
     }
 
-
     @GetMapping
     public List<Powerstation> getPowerstations() {
         return powerstationService.getPowerStations();
